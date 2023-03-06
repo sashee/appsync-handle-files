@@ -8,7 +8,7 @@
 ## Deploy
 
 * ```terraform init```
-* ```terraform apply````
+* ```terraform apply```
 
 ## Usage
 
