@@ -1,0 +1,38 @@
+type User {
+	id: ID!
+	username: String!
+	images(nextToken: String): PaginatedImages!
+}
+
+type PaginatedUsers {
+	users: [User!]!
+	nextToken: String
+}
+
+type PaginatedImages {
+	images: [Image!]!
+	nextToken: String
+}
+
+type Image {
+	key: ID!
+	url: AWSURL!
+	public: Boolean!
+}
+
+type Query {
+	currentUser: User!
+	allUsers(nextToken: String): PaginatedUsers!
+	getUploadURL: AWSJSON!
+	user(id: ID!): User!
+}
+
+type Mutation {
+	addImage(key: ID!): Image!
+	setImagePublicity(key: ID!, public: Boolean!): Image!
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
