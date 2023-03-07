@@ -22,12 +22,13 @@ export const handler = async (event) => {
 				Key: "staging/" + key,
 				Fields: {
 					"x-amz-meta-userid": userid,
-					"x-amz-key": key,
+					"x-amz-meta-key": key,
 				},
 				Conditions: [
 					["content-length-range", 	0, 10000000], // content length restrictions: 0-10MB
 					["starts-with", "$Content-Type", "image/"], // content type restriction
 					["eq", "$x-amz-meta-userid", userid], // tag with userid <= the user can see this!
+					["eq", "$x-amz-meta-key", key],
 				]
 			});
 			return {data};

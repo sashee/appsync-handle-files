@@ -170,7 +170,7 @@ export const App = ({APIURL, loggedin, getAccessToken, redirectToLogin, redirect
 						public
 					}
 				}
-			`, {key: uploadData.fields["x-amz-key"]})).addImage;
+			`, {key: uploadData.fields["x-amz-meta-key"]})).addImage;
 			return addedImage;
 		}));
 		setChangedImages((changedImages) => {
